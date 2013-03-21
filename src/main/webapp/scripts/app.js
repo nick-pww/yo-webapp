@@ -4,7 +4,7 @@ angular.module('yoWebappApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/main.jsp',
         controller: 'MainCtrl'
       })
       .otherwise({

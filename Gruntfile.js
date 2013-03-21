@@ -35,7 +35,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/{,*/}*.jsp',
           '{<%= yeoman.app %>}/styles/{,*/}*.css',
           '{<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
@@ -136,13 +136,13 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '<%= yeoman.app %>/index.jsp',
       options: {
         dest: '<%= yeoman.dist %>'
       }
     },
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/{,*/}*.jsp'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
         dirs: ['<%= yeoman.dist %>']
@@ -183,14 +183,14 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: ['*.html', 'views/*.html'],
+          src: ['*.jsp', 'views/*.jsp'],
           dest: '<%= yeoman.dist %>'
         }]
       }
     },
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/*.html']
+        html: ['<%= yeoman.dist %>/*.jsp']
       }
     },
     ngmin: {
@@ -220,6 +220,7 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
+            '**/*.jsp',
             '*.{ico,txt}',
             '.htaccess',
             'components/**/*',
@@ -260,7 +261,6 @@ module.exports = function (grunt) {
     'useminPrepare',
     'imagemin',
     'cssmin',
-    'htmlmin',
     'concat',
     'copy',
     'cdnify',
