@@ -1,18 +1,18 @@
 // Karma configuration
 
 // base path, that will be used to resolve files and exclude
-basePath = '';
+basePath = 'src';
 
 // list of files / patterns to load in the browser
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'app/components/angular/angular.js',
-  'app/components/angular-mocks/angular-mocks.js',
-  'app/scripts/*.js',
-  'app/scripts/**/*.js',
-  'test/mock/**/*.js',
-  'test/spec/**/*.js'
+  'main/webapp/components/angular/angular.js',
+  'main/webapp/components/angular-mocks/angular-mocks.js',
+  'main/webapp/scripts/*.js',
+  'main/webapp/scripts/**/*.js',
+  'test/javascript/mock/**/*.js',
+  'test/javascript/spec/**/*.js'
 ];
 
 // list of files to exclude
@@ -23,7 +23,7 @@ exclude = [];
 reporters = ['progress'];
 
 // web server port
-port = 8080;
+port = 8085;
 
 // cli runner port
 runnerPort = 9100;
