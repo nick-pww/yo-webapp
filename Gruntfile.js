@@ -36,8 +36,8 @@ module.exports = function (grunt) {
       livereload: {
         files: [
           '<%= yeoman.app %>/{,*/}*.jsp',
-          '{<%= yeoman.app %>}/styles/{,*/}*.css',
-          '{<%= yeoman.app %>}/scripts/{,*/}*.js',
+          '<%= yeoman.app %>/styles/{,*/}*.css',
+          '<%= yeoman.app %>/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
         ],
         tasks: ['livereload']
@@ -52,7 +52,6 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               lrSnippet,
-              mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
             ];
           }
@@ -63,8 +62,7 @@ module.exports = function (grunt) {
           port: 9000,
           middleware: function (connect) {
             return [
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test')
+              mountFolder(connect, 'src/test/javascript')
             ];
           }
         }
