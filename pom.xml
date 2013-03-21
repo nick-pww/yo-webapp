@@ -21,7 +21,50 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<profiles>	
+		<profile>
+			<id>htmldist</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>grunt</executable>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<webResources>
+								<resource>
+									<!-- this is relative to the pom.xml directory. Should match what is in your Gruntfile.js yeomanConfig.dist property -->
+									<directory>target/htmldist</directory>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<build>
 		<finalName>yo-webapp</finalName>
 	</build>
+	<properties>
+		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+	</properties>
 </project>
