@@ -6,4 +6,5 @@ dist
 src/main/webapp/components
 src/main/webapp/styles/css
 src/main/webapp/scripts/coffee
+nb-configuration.xml
 
